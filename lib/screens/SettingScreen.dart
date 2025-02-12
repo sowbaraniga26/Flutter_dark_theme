@@ -26,10 +26,13 @@
             return Column(
               children: [
                 ListTile(
-                  leading: Icon(Icons.dark_mode),
-                  title: Text("Dark Theme"),
+                  leading: Icon(
+                    notifier.isDark ? Icons.dark_mode : Icons.light_mode,
+                  ),
+                  title: Text("Toggle Theme"),
                   trailing: Switch(
-                    onChanged: (value) { notifier.changeTheme(); },
+                    onChanged: (value) {
+                      notifier.changeTheme(); },
                     value: notifier.isDark,
                   ),
                 )
